@@ -1,4 +1,8 @@
 const forceDatabaseRefresh = false;
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 import dotenv from 'dotenv';
 import cors from 'cors';
 dotenv.config();
@@ -12,6 +16,9 @@ app.use(cors());
 app.use(express.static('../client/dist'));
 app.use(express.json());
 app.use(routes);
+app.get("/*", async (req, res) => {
+    res.sendFile(path.join(__dirname, "../../client/dist/index.html"));
+});
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
     app.listen(PORT, () => {
         console.log(`Server is listening on port ${PORT}`);

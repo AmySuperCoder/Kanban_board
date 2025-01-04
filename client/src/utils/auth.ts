@@ -21,6 +21,7 @@ class AuthService {
         }
       )
       const data = await response.json();
+      console.log(data)
   
       if(!response.ok) {
         throw new Error('invalid API response, check network tab!');
