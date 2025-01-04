@@ -5,7 +5,7 @@ class AuthService {
     // TODO: return the decoded token
   }
 
-  async loggedIn() {
+  async loggedIn(): Promise<any | undefined> {
     // TODO: return a value that indicates if the user is logged in
     // const savedAuth = localStorage.getItem("auth")
     // return savedAuth

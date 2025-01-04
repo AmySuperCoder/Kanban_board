@@ -5,8 +5,8 @@ import auth from '../utils/auth';
 const Navbar = () => {
   const [ loginCheck, setLoginCheck ] = useState(false);
 
-  const checkLogin = () => {
-    if(auth.loggedIn()) {
+  const checkLogin = async () => {
+    if (await auth.loggedIn()) {
       setLoginCheck(true);
     }
   };
