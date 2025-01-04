@@ -21,6 +21,10 @@ const Login = () => {
     e.preventDefault();
     try {
       const data = await login(loginData);
+      if (!data.success) {
+        alert("Login credentials incorrect")
+        return 
+      }
       Auth.login(data.token);
     } catch (err) {
       console.error('Failed to login', err);

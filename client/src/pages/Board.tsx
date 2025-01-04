@@ -16,9 +16,11 @@ const Board = () => {
   const [error, setError] = useState(false);
   const [loginCheck, setLoginCheck] = useState(false);
 
-  const checkLogin = () => {
-    if(auth.loggedIn()) {
+  const checkLogin = async () => {
+    if(await auth.loggedIn()) {
       setLoginCheck(true);
+    } else {
+      location.href="/login"
     }
   };
 
@@ -49,7 +51,7 @@ const Board = () => {
   useEffect(() => {
     if(loginCheck) {
       fetchTickets();
-    }
+    } 
   }, [loginCheck]);
 
   if (error) {

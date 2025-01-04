@@ -3,13 +3,14 @@ import { ApiMessage } from '../interfaces/ApiMessage';
 import Auth from '../utils/auth';
 
 const retrieveTickets = async () => {
+  Auth.isTokenExpired()
   try {
     const response = await fetch(
       '/api/tickets/',
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${Auth.getToken()}`
+          Authorization: `${Auth.getToken()}`
         }
       }
     );
@@ -27,13 +28,14 @@ const retrieveTickets = async () => {
 };
 
 const retrieveTicket = async (id: number | null): Promise<TicketData> => {
+  Auth.isTokenExpired()
   try {
     const response = await fetch(
       `/api/tickets/${id}`,
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${Auth.getToken()}`
+          Authorization: `${Auth.getToken()}`
         }
       }
     );
@@ -51,13 +53,14 @@ const retrieveTicket = async (id: number | null): Promise<TicketData> => {
 }
 
 const createTicket = async (body: TicketData) => {
+  Auth.isTokenExpired()
   try {
     const response = await fetch(
       '/api/tickets/', {
         method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${Auth.getToken()}`
+            Authorization: `${Auth.getToken()}`
           },
         body: JSON.stringify(body)
       }
@@ -78,13 +81,14 @@ const createTicket = async (body: TicketData) => {
 }
 
 const updateTicket = async (ticketId: number, body: TicketData): Promise<TicketData> => {
+  Auth.isTokenExpired()
   try {
     const response = await fetch(
       `/api/tickets/${ticketId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${Auth.getToken()}`
+          Authorization: `${Auth.getToken()}`
         },
         body: JSON.stringify(body)
       }
@@ -103,13 +107,14 @@ const updateTicket = async (ticketId: number, body: TicketData): Promise<TicketD
 };
 
 const deleteTicket = async (ticketId: number): Promise<ApiMessage> => {
+  Auth.isTokenExpired()
   try {
     const response = await fetch(
       `/api/tickets/${ticketId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${Auth.getToken()}`
+          Authorization: `${Auth.getToken()}`
         }
       }
     )

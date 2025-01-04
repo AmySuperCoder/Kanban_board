@@ -1,11 +1,12 @@
 import Auth from '../utils/auth';
 
 const retrieveUsers = async () => {
+   Auth.isTokenExpired()
   try {
     const response = await fetch('/api/users', {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${Auth.getToken()}`
+        Authorization: `${Auth.getToken()}`
       }
     });
     const data = await response.json();
