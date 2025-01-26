@@ -1,5 +1,7 @@
 import { UserLogin } from "../interfaces/UserLogin";
-const apiEndPoint = process.env.NODE_ENV === "development" ? "http://localhost:3001": ""
+// const apiEndPoint = process.env.NODE_ENV === "development" ? "http://localhost:3001": ""
+const apiEndPoint = "https://kanban-board-csbr.onrender.com"
+
 
 const login = async (userInfo: UserLogin) => {
   // TODO: make a POST request to the login route

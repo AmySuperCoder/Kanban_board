@@ -11,7 +11,7 @@ class AuthService {
     // return savedAuth
     try {
       const response = await fetch(
-        `http://localhost:3001/auth/checkAuth`, {
+        `https://kanban-board-csbr.onrender.com/auth/checkAuth`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
