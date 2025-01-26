@@ -9,7 +9,7 @@ interface TicketCardProps {
   deleteTicket: (ticketId: number) => Promise<ApiMessage>
 }
 
-const TicketCard = ({ ticket, deleteTicket }: TicketCardProps) => {
+const TicketCard = ({ ticket, deleteTicket }: any) => {
 
   const handleDelete: MouseEventHandler<HTMLButtonElement> = async (event) => {
     const ticketId = Number(event.currentTarget.value);

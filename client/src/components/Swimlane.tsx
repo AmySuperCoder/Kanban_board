@@ -8,7 +8,7 @@ interface SwimlaneProps {
   deleteTicket: (ticketId: number) => Promise<ApiMessage>
 }
 
-const Swimlane = ({ title, tickets, deleteTicket }: SwimlaneProps) => {
+const Swimlane = ({ title, tickets, deleteTicket }: any) => {
   const getStatusClass = (status: string) => {
     switch (status) {
       case 'Todo':
